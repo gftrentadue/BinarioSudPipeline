@@ -1,0 +1,3 @@
+agency_id,agency_name,agency_url,agency_timezone,agency_lang
+FAL,Ferrovie Appulo Lucane,https://www.ferrovieappulolucane.it,Europe/Rome,it
+TI,Trenitalia,https://www.trenitalia.com,Europe/Rome,it

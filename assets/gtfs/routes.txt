@@ -1,0 +1,3 @@
+route_id,agency_id,route_short_name,route_long_name,route_type
+FAL_BA_MT,FAL,,Bari Centrale - Matera Centrale,2
+TI_BA_TA,TI,,Bari Centrale - Taranto,2

@@ -1,0 +1,5 @@
+stop_id,stop_name,stop_lat,stop_lon
+BARI_FAL,Bari Centrale (FAL),41.118585,16.8684559
+MOD_FAL,Modugno Città,41.0864698,16.7792309
+BARI_TI,Bari Centrale (Trenitalia),41.1176638,16.8693885
+MOD_TI,Modugno,41.0719215,16.785155
