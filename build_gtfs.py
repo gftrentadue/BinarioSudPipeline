@@ -250,7 +250,7 @@ w("calendar_dates.txt", ["service_id","date","exception_type"], cd_rows)
 w("feed_info.txt",
   ["feed_publisher_name","feed_publisher_url","feed_lang","feed_version",
    "feed_start_date","feed_end_date"],
-  [["Progetto orari Modugno-Bari (personale)","https://example.com","it",
+  [["Progetto orari Modugno-Bari (personale)","https://github.com/gftrentadue/BinarioSudPipeline","it",
     FEED_VERSION, FAL_START, TI_END]])
 
 print("Generato feed", FEED_VERSION)

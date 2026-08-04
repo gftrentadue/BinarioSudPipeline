@@ -1,0 +1,46 @@
+name: Pubblica feed GTFS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Genera GTFS
+        run: python build_gtfs.py
+
+      - name: Impacchetta zip + manifest
+        run: python scripts/package_release.py
+
+      - name: Leggi feed_version
+        id: feed
+        run: |
+          VERSION=$(python -c "import json;print(json.load(open('dist/manifest.json'))['feed_version'])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Crea Release (bozza)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.feed.outputs.version }}
+          name: GTFS ${{ steps.feed.outputs.version }}
+          draft: true
+          files: |
+            dist/gtfs-${{ steps.feed.outputs.version }}.zip
+            dist/manifest.json
+
+      - name: Pubblica Release
+        run: gh release edit "${{ steps.feed.outputs.version }}" --draft=false
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

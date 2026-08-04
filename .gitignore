@@ -6,6 +6,9 @@ __pycache__/
 venv/
 env/
 
+# Artefatti di pubblicazione (zip + manifest generati a ogni release, non versionati)
+dist/
+
 # VS Code (versionati solo launch.json/tasks.json, il resto è macchina-specifico)
 .vscode/*
 !.vscode/launch.json
