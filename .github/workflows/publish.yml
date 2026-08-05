@@ -38,6 +38,7 @@ jobs:
           draft: true
           files: |
             dist/gtfs-${{ steps.feed.outputs.version }}.zip
+            dist/attributes-${{ steps.feed.outputs.version }}.zip
             dist/manifest.json
 
       - name: Pubblica Release

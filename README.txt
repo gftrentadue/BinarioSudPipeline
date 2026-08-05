@@ -23,9 +23,40 @@ BUNDLE NELL'APP FLUTTER
 
 ATTRIBUTI ESTESI (non-GTFS)
 - Categoria treno (R/RV), garanzia sciopero (G), prenotazione,
-  binario, fermata intermedia, nota di circolazione: nei side-car JSON
-  ti_modugno_bari_attributes.json e ti_bari_modugno_attributes.json
-  (consegnati separatamente), agganciabili via trip_id/train_number.
+  binario, fermata intermedia, nota di circolazione: nei 4 side-car JSON
+  in assets/attributes/ (ti_bari_modugno, ti_modugno_bari, fal_bari_modugno,
+  fal_modugno_bari _attributes.json), versionati in questo repo e agganciabili
+  via trip_id.
+- Da ora sono generati/pubblicati anche da questa pipeline (non piu' "consegnati
+  separatamente"): scripts/package_release.py li impacchetta in
+  attributes-<feed_version>.zip, un asset di release distinto da
+  gtfs-<feed_version>.zip ma con lo stesso feed_version (stessa release/tag),
+  cosi' i trip_id restano sempre coerenti tra i due zip.
+
+PUBBLICAZIONE (dist/, generato da scripts/package_release.py, non versionato)
+- gtfs-<feed_version>.zip        : assets/gtfs/*.txt
+- attributes-<feed_version>.zip  : assets/attributes/*.json
+- manifest.json (contratto Fase 2 spec SS1.3/SS1.4), schema_version: 2
+  - feed_url, feed_size_bytes, feed_sha256           -> per gtfs-<feed_version>.zip
+  - attributes_url, attributes_size_bytes, attributes_sha256 -> per attributes-<feed_version>.zip
+  - schema_version alzato da 1 a 2 con l'introduzione di questi 3 nuovi campi
+    (breaking change deliberato, per policy di progetto: qualunque estensione del
+    manifest incrementa schema_version, anche quando i campi sono additivi).
+    ATTENZIONE: l'app BinarioSud gia' installata verifica schemaVersion in
+    FeedRefreshService (supportedSchemaVersion = 1) e smette di aggiornare il GTFS
+    da rete (RF-07) finche' non viene rilasciato un aggiornamento dell'app che
+    riconosce schema_version 2 -- effetto collaterale noto e accettato.
+- Pubblicati insieme da .github/workflows/publish.yml (workflow_dispatch manuale),
+  come asset della stessa GitHub Release, resa pubblica solo a upload completato.
+
+LATO APP (fuori scope di questo repo, da fare in BinarioSud)
+- lib/data/feed_manifest.dart: aggiungere attributesUrl/attributesSizeBytes/
+  attributesSha256 (nullable, stesso pattern dei campi feed_*).
+- lib/data/feed_refresh_service.dart: alzare supportedSchemaVersion a 2 e
+  aggiungere il download/verifica/estrazione di attributes-<feed_version>.zip,
+  analogo a _downloadAndSwap per il GTFS.
+- lib/data/attributes_parser.dart: nessuna modifica di formato attesa (stesso
+  schema {meta, trains[]} gia' consumato dal bundle locale).
 
 PUNTI APERTI (da rivedere periodicamente)
 - FAL_end (12/12/2026): ASSUNTO, nessuna scadenza pubblicata -> riverificare

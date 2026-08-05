@@ -1,0 +1,843 @@
+{
+  "meta": {
+    "operator": "Trenitalia",
+    "direction": "Modugno -> Bari Centrale",
+    "source": "Quadro orario RFI - Partenze da Modugno (A4_P_Modugno.pdf)",
+    "validity": {
+      "from": "2026-06-14",
+      "to": "2026-12-12"
+    },
+    "published": "2026-06-14",
+    "feed_version_ref": "20260618-x (slice TI Modugno->Bari, non ancora codificata in GTFS)",
+    "count": 29,
+    "schema_notes": [
+      "bikes_allowed e wheelchair_accessible sono campi GTFS nativi (trips.txt): vanno messi nel feed, qui presenti per completezza.",
+      "service_note_raw e' la fonte autorevole; service_pattern e' una derivazione (_derived=true) da validare prima della codifica calendario nel GTFS.",
+      "I festivi = domeniche + festivita' nazionali; i pattern MON_FRI/MON_SAT non circolano nei festivi infrasettimanali (da modellare con calendar_dates).",
+      "platform_modugno: tutti i treni verso Bari partono dal binario 1 di Modugno."
+    ]
+  },
+  "trains": [
+    {
+      "train_number": "19826",
+      "trip_id": "TI_19826",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "05:37",
+      "arrival_bari_centrale": "05:50",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "05:42"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19828",
+      "trip_id": "TI_19828",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "06:37",
+      "arrival_bari_centrale": "06:50",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "06:42"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19872",
+      "trip_id": "TI_19872",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "07:26",
+      "arrival_bari_centrale": "07:39",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "07:31"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19854",
+      "trip_id": "TI_19854",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "07:27",
+      "arrival_bari_centrale": "07:40",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "07:32"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23602",
+      "trip_id": "TI_23602",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "07:59",
+      "arrival_bari_centrale": "08:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "08:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19874",
+      "trip_id": "TI_19874",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "08:17",
+      "arrival_bari_centrale": "08:30",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "08:22"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO; NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23604",
+      "trip_id": "TI_23604",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "08:59",
+      "arrival_bari_centrale": "09:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "09:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19876",
+      "trip_id": "TI_19876",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "09:05",
+      "arrival_bari_centrale": "09:18",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "09:10"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23606",
+      "trip_id": "TI_23606",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "10:59",
+      "arrival_bari_centrale": "11:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "11:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19878",
+      "trip_id": "TI_19878",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "11:05",
+      "arrival_bari_centrale": "11:18",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "11:10"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19836",
+      "trip_id": "TI_19836",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "12:37",
+      "arrival_bari_centrale": "12:50",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "12:42"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19880",
+      "trip_id": "TI_19880",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "12:44",
+      "arrival_bari_centrale": "12:57",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "12:49"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO; NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19838",
+      "trip_id": "TI_19838",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "14:02",
+      "arrival_bari_centrale": "14:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "14:07"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19882",
+      "trip_id": "TI_19882",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "14:05",
+      "arrival_bari_centrale": "14:18",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "14:10"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO; NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19884",
+      "trip_id": "TI_19884",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "14:47",
+      "arrival_bari_centrale": "15:00",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "14:52"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23608",
+      "trip_id": "TI_23608",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "14:59",
+      "arrival_bari_centrale": "15:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "15:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19886",
+      "trip_id": "TI_19886",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "15:47",
+      "arrival_bari_centrale": "16:00",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "15:52"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO; NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23610",
+      "trip_id": "TI_23610",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "15:59",
+      "arrival_bari_centrale": "16:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "16:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19890",
+      "trip_id": "TI_19890",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "16:27",
+      "arrival_bari_centrale": "16:40",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "16:32"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23612",
+      "trip_id": "TI_23612",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "16:59",
+      "arrival_bari_centrale": "17:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "17:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19892",
+      "trip_id": "TI_19892",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "17:59",
+      "arrival_bari_centrale": "18:12",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "18:04"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23614",
+      "trip_id": "TI_23614",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "17:59",
+      "arrival_bari_centrale": "18:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "18:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23616",
+      "trip_id": "TI_23616",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "18:59",
+      "arrival_bari_centrale": "19:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "19:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19894",
+      "trip_id": "TI_19894",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "19:21",
+      "arrival_bari_centrale": "19:35",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "19:27"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO; NON CIRCOLA NEI GIORNI FESTIVI",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23618",
+      "trip_id": "TI_23618",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "19:59",
+      "arrival_bari_centrale": "20:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "20:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19896",
+      "trip_id": "TI_19896",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "20:32",
+      "arrival_bari_centrale": "20:45",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "20:37"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "SAT_SUN_HOL",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "23620",
+      "trip_id": "TI_23620",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "20:59",
+      "arrival_bari_centrale": "21:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "21:05"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "NON CIRCOLA NEI GIORNI FESTIVI-SABATO",
+      "service_pattern": {
+        "code": "MON_FRI",
+        "runs_mon_fri": true,
+        "runs_saturday": false,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19898",
+      "trip_id": "TI_19898",
+      "category": "R",
+      "category_label": "Regionale",
+      "departure_modugno": "21:22",
+      "arrival_bari_centrale": "21:35",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "21:27"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "CIRCOLA SABATO (dal 14 giu al 8 ago; dal 22 ago al 12 dic)",
+      "service_pattern": {
+        "code": "SAT_ONLY_SUMMER_GAP",
+        "runs_mon_fri": false,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [
+          [
+            "2026-06-14",
+            "2026-08-08"
+          ],
+          [
+            "2026-08-22",
+            "2026-12-12"
+          ]
+        ],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "19852",
+      "trip_id": "TI_19852",
+      "category": "RV",
+      "category_label": "Regionale Veloce",
+      "departure_modugno": "22:07",
+      "arrival_bari_centrale": "22:20",
+      "intermediate_stops": [
+        {
+          "name": "Bari Villaggio del Lavoratore",
+          "departure": "22:12"
+        }
+      ],
+      "platform_modugno": "1",
+      "bikes_allowed": true,
+      "wheelchair_accessible": true,
+      "reservation_required": false,
+      "strike_guaranteed": false,
+      "service_note_raw": "",
+      "service_pattern": {
+        "code": "DAILY",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": true,
+        "active_date_windows": [],
+        "_derived": true
+      }
+    }
+  ]
+}

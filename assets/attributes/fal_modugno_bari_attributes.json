@@ -1,0 +1,695 @@
+{
+  "meta": {
+    "operator": "FAL (Ferrovie Appulo Lucane)",
+    "direction": "Modugno -> Bari Centrale",
+    "source": "Manifesto orario FAL 'Da e per Bari' in vigore dal 27/10/2025 (MANIFESTO-ORARIO-TRENI-DA-E-PER-BARI-DAL-27-OTT-2025.pdf)",
+    "validity": {
+      "from": "2025-10-27",
+      "to": "2026-12-12"
+    },
+    "published": "2025-10-27",
+    "count": 20,
+    "schema_notes": [
+      "bikes_allowed=true per tutte le corse (manifesto FAL: trasporto bici consentito a bordo).",
+      "wheelchair_accessible=false per tutte = ASSUNTO non accessibile (nessun dato sul manifesto FAL; in GTFS = valore 2). Da verificare.",
+      "category non riportata dal manifesto FAL: category_label='Regionale' (servizio regionale), category=null.",
+      "platform: il manifesto FAL non indica i binari -> null.",
+      "train_number: i numeri FAL non sono allineabili in modo affidabile alle singole colonne del manifesto. Valorizzato solo per le due corse soppresse in agosto (129/116, coerenti col GTFS rilasciato); per le altre = null. Join col GTFS via trip_id.",
+      "strike_guaranteed=true riflette la marcatura prevalente '(2) treni garantiti in caso di sciopero' della tratta Modugno<->Bari; allineamento per-colonna dei marcatori (1)/(2)/(1-2) best-effort.",
+      "service_note_raw = fonte autorevole (manifesto); service_pattern = derivato (_derived=true), da validare.",
+      "Esclusi i treni che NON fermano a Modugno (Modugno = '-' nel manifesto).",
+      "validity.to (12/12/2026) e' ASSUNTO: nessuna scadenza pubblicata sul manifesto."
+    ]
+  },
+  "trains": [
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0544",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "05:44",
+      "arrival_bari_centrale": "06:03",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "05:54"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "05:57"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0656",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "06:56",
+      "arrival_bari_centrale": "07:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "07:06"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "07:09"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0716",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "07:16",
+      "arrival_bari_centrale": "07:35",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "07:26"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "07:29"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0745",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "07:45",
+      "arrival_bari_centrale": "08:05",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "07:55"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "07:59"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0830",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "08:30",
+      "arrival_bari_centrale": "08:49",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "08:40"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "08:43"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0921",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "09:21",
+      "arrival_bari_centrale": "09:40",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "09:31"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "09:34"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_0955",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "09:55",
+      "arrival_bari_centrale": "10:15",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "10:05"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "10:09"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1040",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "10:40",
+      "arrival_bari_centrale": "11:01",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "10:50"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "10:55"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": "116",
+      "trip_id": "FAL_B_1131",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "11:31",
+      "arrival_bari_centrale": "11:52",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "11:41"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "11:46"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Soppresso nel mese di agosto (1); servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT_NO_AUG",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [
+          [
+            "2025-10-27",
+            "2026-07-31"
+          ],
+          [
+            "2026-09-01",
+            "2026-12-12"
+          ]
+        ],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1240",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "12:40",
+      "arrival_bari_centrale": "13:00",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "12:50"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "12:54"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1335",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "13:35",
+      "arrival_bari_centrale": "13:55",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "13:45"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "13:49"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1449",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "14:49",
+      "arrival_bari_centrale": "15:08",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "14:59"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "15:02"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1556",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "15:56",
+      "arrival_bari_centrale": "16:16",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "16:06"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "16:10"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1651",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "16:51",
+      "arrival_bari_centrale": "17:11",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "17:01"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "17:05"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1735",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "17:35",
+      "arrival_bari_centrale": "17:56",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "17:45"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "17:50"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1847",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "18:47",
+      "arrival_bari_centrale": "19:09",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "18:57"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "19:03"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_1955",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "19:55",
+      "arrival_bari_centrale": "20:17",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "20:05"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "20:11"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_2051",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "20:51",
+      "arrival_bari_centrale": "21:12",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "21:01"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "21:06"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_2203",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "22:03",
+      "arrival_bari_centrale": "22:24",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "22:13"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "22:18"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    },
+    {
+      "train_number": null,
+      "trip_id": "FAL_B_2251",
+      "category": null,
+      "category_label": "Regionale",
+      "departure_modugno": "22:51",
+      "arrival_bari_centrale": "23:10",
+      "intermediate_stops": [
+        {
+          "name": "Bari Policlinico",
+          "departure": "23:01"
+        },
+        {
+          "name": "Bari Scalo",
+          "departure": "23:04"
+        }
+      ],
+      "platform_modugno": null,
+      "bikes_allowed": true,
+      "wheelchair_accessible": false,
+      "reservation_required": false,
+      "strike_guaranteed": true,
+      "service_note_raw": "Servizio sospeso domenica e festivi",
+      "service_pattern": {
+        "code": "MON_SAT",
+        "runs_mon_fri": true,
+        "runs_saturday": true,
+        "runs_sunday_holidays": false,
+        "active_date_windows": [],
+        "exclude_dates": [],
+        "_derived": true
+      }
+    }
+  ]
+}
