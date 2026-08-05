@@ -26,7 +26,7 @@ import csv, os, datetime
 OUT = os.path.join(os.path.dirname(__file__), "assets", "gtfs")
 os.makedirs(OUT, exist_ok=True)
 
-FEED_VERSION = "20260618-7"
+FEED_VERSION = "20260805-1"
 FAL_START, FAL_END = "20251027", "20261212"
 TI_START,  TI_END  = "20260614", "20261212"
 
