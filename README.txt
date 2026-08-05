@@ -87,6 +87,35 @@ e' cambiato:
 - Entrambi i workflow sono separati da publish.yml, che resta l'unico modo
   per pubblicare una Release ed e' e rimane manuale (workflow_dispatch).
 
+COSA FARE QUANDO check_ti_source.yml APRE UNA PR O check_fal_source.yml UNA ISSUE
+Nessuno dei due workflow tocca assets/gtfs/*.txt ne' lancia publish.yml: una
+PR/issue non implica da sola una nuova pubblicazione, solo se la revisione
+conferma un cambiamento reale che riguarda Modugno<->Bari occorre poi:
+
+  Se PR da check_ti_source.yml (data/ti_trains.json):
+  [ ] Rivedi il diff sulla PR
+  [ ] Classifica a mano il pattern di ogni corsa con "DA_CLASSIFICARE"
+      (altrimenti build_gtfs.py fallisce apposta con KeyError)
+  [ ] Fai merge della PR
+  [ ] Aggiorna FEED_VERSION in build_gtfs.py (non si aggiorna da solo)
+  [ ] Esegui build_gtfs.py in locale per rigenerare assets/gtfs/*.txt
+  [ ] Committa i file rigenerati
+  [ ] Lancia publish.yml (workflow_dispatch) per la Release vera
+
+  Se issue da check_fal_source.yml (hash PDF FAL cambiato):
+  [ ] Apri il PDF FAL segnalato nella issue e verifica a occhio se cambia
+      qualcosa che riguarda davvero Modugno<->Bari (l'hash puo' cambiare
+      anche per altre tratte non rilevanti qui)
+  [ ] Se si', modifica a mano FAL_TRIPS_M/FAL_TRIPS_B in build_gtfs.py
+  [ ] Aggiorna FEED_VERSION in build_gtfs.py
+  [ ] Esegui build_gtfs.py in locale per rigenerare assets/gtfs/*.txt
+  [ ] Committa i file rigenerati
+  [ ] Lancia publish.yml (workflow_dispatch) per la Release vera
+
+Se invece la revisione non mostra nulla di sostanziale (es. hash FAL cambiato
+per un dettaglio non rilevante, o diff TI rientrato), si puo' chiudere/mergere
+senza ripubblicare nulla.
+
 PUNTI APERTI (da rivedere periodicamente)
 - FAL_end (12/12/2026): ASSUNTO, nessuna scadenza pubblicata -> riverificare
 - Accessibilita' carrozzina FAL: ASSUNTA non accessibile (wheelchair_accessible=2),
