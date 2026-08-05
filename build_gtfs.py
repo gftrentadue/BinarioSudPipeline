@@ -21,9 +21,10 @@ Provenienza date (per i controlli periodici dell'utente):
 Festivita' locali (patronali Bari/Modugno) = NON gestite: si assume che i treni
 circolino (decisione utente, da rivalutare in futuro).
 """
-import csv, os, datetime
+import csv, json, os, datetime
 
-OUT = os.path.join(os.path.dirname(__file__), "assets", "gtfs")
+ROOT = os.path.dirname(__file__)
+OUT = os.path.join(ROOT, "assets", "gtfs")
 os.makedirs(OUT, exist_ok=True)
 
 FEED_VERSION = "20260805-1"
@@ -74,43 +75,18 @@ PAT2SERVICE = {
     "SAT_ONLY_EXCL_AUG": "TI_SAB_EXCL_AUG",   # solo treno 19863: sabati, escl. 8 e 15 ago
     "DAILY": "TI_GIORNAL",
 }
+# Dati caricati da data/ti_trains.json (fonte: quadri orario RFI, aggiornabile
+# anche da scripts/update_ti_source.py). Un pattern "DA_CLASSIFICARE" e' una
+# sentinella intenzionale: fa fallire PAT2SERVICE[pat] piu' sotto finche' non
+# viene classificato a mano il pattern di calendario corretto.
+with open(os.path.join(ROOT, "data", "ti_trains.json"), encoding="utf-8") as _f:
+    _ti_data = json.load(_f)
+
 # TI Modugno -> Bari Centrale (direction_id=0): (num, dep_modugno, arr_bari, pattern)
-TI_TRAINS_MB = [
-    ("19826","5.37","5.50","MON_SAT"), ("19828","6.37","6.50","MON_SAT"),
-    ("19872","7.26","7.39","SAT_SUN_HOL"), ("19854","7.27","7.40","MON_FRI"),
-    ("23602","7.59","8.15","MON_FRI"), ("19874","8.17","8.30","MON_SAT"),
-    ("23604","8.59","9.15","MON_FRI"), ("19876","9.05","9.18","SAT_SUN_HOL"),
-    ("23606","10.59","11.15","MON_FRI"), ("19878","11.05","11.18","SAT_SUN_HOL"),
-    ("19836","12.37","12.50","MON_FRI"), ("19880","12.44","12.57","MON_SAT"),
-    ("19838","14.02","14.15","MON_FRI"), ("19882","14.05","14.18","MON_SAT"),
-    ("19884","14.47","15.00","SAT_SUN_HOL"), ("23608","14.59","15.15","MON_FRI"),
-    ("19886","15.47","16.00","MON_SAT"), ("23610","15.59","16.15","MON_FRI"),
-    ("19890","16.27","16.40","SAT_SUN_HOL"), ("23612","16.59","17.15","MON_FRI"),
-    ("19892","17.59","18.12","SAT_SUN_HOL"), ("23614","17.59","18.15","MON_FRI"),
-    ("23616","18.59","19.15","MON_FRI"), ("19894","19.21","19.35","MON_SAT"),
-    ("23618","19.59","20.15","MON_FRI"), ("19896","20.32","20.45","SAT_SUN_HOL"),
-    ("23620","20.59","21.15","MON_FRI"), ("19898","21.22","21.35","SAT_ONLY_SUMMER_GAP"),
-    ("19852","22.07","22.20","DAILY"),
-]
+TI_TRAINS_MB = [(t["num"], t["dep"], t["arr"], t["pattern"]) for t in _ti_data["modugno_bari"]]
 
 # TI Bari Centrale -> Modugno (direction_id=1): (num, dep_bari, arr_modugno, pattern)
-TI_TRAINS_BM = [
-    ("19825","5.30","5.42","MON_SAT"), ("19827","6.10","6.22","MON_SAT"),
-    ("23603","6.45","6.58","MON_FRI"), ("19871","7.18","7.30","SAT_SUN_HOL"),
-    ("23605","7.45","7.58","MON_FRI"), ("19853","9.10","9.22","MON_FRI"),
-    ("19873","9.50","10.02","MON_SAT"), ("19875","10.50","11.02","SAT_SUN_HOL"),
-    ("19831","11.10","11.22","MON_FRI"), ("23607","12.45","12.58","MON_FRI"),
-    ("19877","13.10","13.22","SAT_ONLY_SUMMER_GAP"), ("19879","13.40","13.52","SAT_SUN_HOL"),
-    ("23609","13.45","13.58","MON_FRI"), ("19881","14.40","14.52","SAT_SUN_HOL"),
-    ("23611","14.45","14.58","MON_FRI"), ("19883","15.24","15.36","SAT_ONLY_SUMMER_GAP"),
-    ("23613","15.45","15.58","MON_FRI"), ("19891","16.30","16.42","SAT_SUN_HOL"),
-    ("23615","16.45","16.58","MON_FRI"), ("19893","17.44","17.56","SAT_ONLY_SUMMER_GAP"),
-    ("23617","17.45","17.58","MON_FRI"), ("19895","18.20","18.33","SAT_SUN_HOL"),
-    ("23619","18.45","18.58","MON_FRI"), ("19897","19.45","19.57","SAT_SUN_HOL"),
-    ("23621","19.45","19.58","MON_FRI"), ("19899","20.50","21.02","MON_SAT"),
-    ("19849","21.10","21.22","MON_FRI"), ("19885","21.28","21.40","SAT_SUN_HOL"),
-    ("19851","22.45","22.57","MON_FRI"), ("19863","23.37","23.49","SAT_ONLY_EXCL_AUG"),
-]
+TI_TRAINS_BM = [(t["num"], t["dep"], t["arr"], t["pattern"]) for t in _ti_data["bari_modugno"]]
 
 def w(name, header, rows):
     with open(os.path.join(OUT, name), "w", newline="", encoding="utf-8") as f:

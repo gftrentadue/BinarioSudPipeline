@@ -1,0 +1,67 @@
+name: Verifica fonte orari FAL
+
+# Controllo leggero: nessun OCR, nessun dato scritto in assets/. Confronta lo
+# sha256 del PDF "Da e per Bari" attualmente pubblicato da FAL con l'ultimo
+# hash noto e, se cambia, apre una issue di notifica (mai una pubblicazione
+# automatica). Il contenuto del PDF non viene mai incluso nella issue.
+
+on:
+  schedule:
+    - cron: "0 6 1 * *" # mensile, il 1° di ogni mese alle 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verifica hash PDF FAL
+        id: check
+        run: python scripts/check_fal_source.py
+
+      - name: Commit dello stato aggiornato
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/fal_source_state.json
+          git commit -m "chore: aggiorna hash noto del PDF orario FAL"
+          git push
+
+      - name: Apri issue di notifica
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        env:
+          PDF_URL: ${{ steps.check.outputs.pdf_url }}
+          OLD_PDF_URL: ${{ steps.check.outputs.old_pdf_url }}
+          OLD_SHA: ${{ steps.check.outputs.old_sha256 }}
+          NEW_SHA: ${{ steps.check.outputs.new_sha256 }}
+        with:
+          script: |
+            const body = [
+              "Rilevato un cambiamento nel PDF pubblicato da FAL (quadro orario \"Da e per Bari\").",
+              "",
+              `- URL corrente: ${process.env.PDF_URL}`,
+              `- URL precedente: ${process.env.OLD_PDF_URL || "(nessuno, prima verifica)"}`,
+              `- sha256 precedente: ${process.env.OLD_SHA || "(nessuno)"}`,
+              `- sha256 nuovo: ${process.env.NEW_SHA}`,
+              "",
+              "Controllo manuale necessario: nessun contenuto del PDF viene riprodotto qui ne' pubblicato automaticamente.",
+            ].join("\n");
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "Il PDF orario FAL sembra essere cambiato",
+              body,
+            });

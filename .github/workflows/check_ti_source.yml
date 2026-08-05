@@ -1,0 +1,47 @@
+name: Verifica fonte orari TI (RFI)
+
+# Controllo periodico, non pubblicazione: confronta data/ti_trains.json con il
+# quadro orario RFI live (Bari Centrale + Modugno) e, se ci sono differenze,
+# apre una Pull Request per revisione umana. Non tocca build_gtfs.py, non
+# pubblica mai nulla: publish.yml resta l'unico workflow di pubblicazione,
+# manuale.
+
+on:
+  schedule:
+    - cron: "0 6 1 * *" # mensile, il 1° di ogni mese alle 06:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Imposta Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verifica ed eventualmente aggiorna data/ti_trains.json
+        run: python scripts/update_ti_source.py
+
+      - name: Apri Pull Request se ci sono differenze
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: aggiorna data/ti_trains.json da quadro orario RFI"
+          title: "Verifica orari TI: differenze rilevate dal quadro orario RFI"
+          body: |
+            Generato automaticamente da `scripts/update_ti_source.py` (workflow schedulato).
+
+            Nessuna pubblicazione automatica: revisiona il diff prima del merge.
+            Le corse nuove o con orario cambiato hanno pattern di calendario impostato
+            a `DA_CLASSIFICARE` — vanno classificate a mano in `data/ti_trains.json`
+            prima di eseguire `build_gtfs.py` (che altrimenti fallisce volutamente
+            con `KeyError` su quel valore).
+          branch: auto/update-ti-source
+          add-paths: data/ti_trains.json

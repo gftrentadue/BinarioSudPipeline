@@ -58,6 +58,35 @@ LATO APP (fuori scope di questo repo, da fare in BinarioSud)
 - lib/data/attributes_parser.dart: nessuna modifica di formato attesa (stesso
   schema {meta, trains[]} gia' consumato dal bundle locale).
 
+VERIFICA PERIODICA DELLE FONTI ORARIO (controllo, non scraping automatico)
+Indagine: ne' RFI ne' FAL pubblicano oggi un GTFS o un'API aperta per questa
+tratta (verificato su dati.puglia.it, dati.gov.it, Mobility Database/Transitland
+ad agosto 2026: il dataset FAL su dati.puglia.it e' fermo al 2021, quello TI
+si ferma al 2024, nessun GTFS RFI-derivato pubblicato per la Puglia). I dati
+restano quindi accentrati in build_gtfs.py, ma il *metodo di aggiornamento*
+e' cambiato:
+- data/ti_trains.json: le tabelle corse TI (num/orari/pattern), prima literal
+  Python dentro build_gtfs.py, ora vivono qui; build_gtfs.py le importa senza
+  altre modifiche di logica.
+- scripts/update_ti_source.py: legge i quadri orario RFI live (pagine HTML
+  server-side, senza login/JS, per Bari Centrale id=550 e Modugno id=43609223)
+  e aggiorna SOLO data/ti_trains.json. Se una corsa e' nuova o cambia orario,
+  il pattern di calendario viene scritto come sentinella "DA_CLASSIFICARE"
+  (mai indovinato automaticamente): build_gtfs.py fallisce apposta con
+  KeyError su PAT2SERVICE finche' non lo si classifica a mano. Eseguito dal
+  workflow schedulato .github/workflows/check_ti_source.yml (mensile), che
+  apre una Pull Request se ci sono differenze -- nessun commit/pubblicazione
+  automatica, revisione via git diff prima del merge.
+- scripts/check_fal_source.py + data/fal_source_state.json: nessun OCR. Solo
+  hash sha256 del PDF "Da e per Bari" attualmente pubblicato da FAL (il nome
+  file cambia a ogni pubblicazione, risolto dalla pagina indice), confrontato
+  con l'ultimo hash noto. Se cambia, .github/workflows/check_fal_source.yml
+  (mensile) apre una issue di notifica (mai il contenuto del PDF, per la
+  clausola di non redistribuzione nei Termini RFI/FAL) -- controllo e
+  trascrizione restano manuali come oggi.
+- Entrambi i workflow sono separati da publish.yml, che resta l'unico modo
+  per pubblicare una Release ed e' e rimane manuale (workflow_dispatch).
+
 PUNTI APERTI (da rivedere periodicamente)
 - FAL_end (12/12/2026): ASSUNTO, nessuna scadenza pubblicata -> riverificare
 - Accessibilita' carrozzina FAL: ASSUNTA non accessibile (wheelchair_accessible=2),

@@ -1,0 +1,361 @@
+{
+  "_comment": "Dati corse Trenitalia Modugno<->Bari Centrale. Aggiornato manualmente o da scripts/update_ti_source.py (che scrive solo qui, mai in build_gtfs.py). pattern='DA_CLASSIFICARE' e' una sentinella: build_gtfs.py si ferma con KeyError finche' non viene classificato a mano.",
+  "modugno_bari": [
+    {
+      "num": "19826",
+      "dep": "5.37",
+      "arr": "5.50",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19828",
+      "dep": "6.37",
+      "arr": "6.50",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19872",
+      "dep": "7.26",
+      "arr": "7.39",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "19854",
+      "dep": "7.27",
+      "arr": "7.40",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "23602",
+      "dep": "7.59",
+      "arr": "8.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19874",
+      "dep": "8.17",
+      "arr": "8.30",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "23604",
+      "dep": "8.59",
+      "arr": "9.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19876",
+      "dep": "9.05",
+      "arr": "9.18",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23606",
+      "dep": "10.59",
+      "arr": "11.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19878",
+      "dep": "11.05",
+      "arr": "11.18",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "19836",
+      "dep": "12.37",
+      "arr": "12.50",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19880",
+      "dep": "12.44",
+      "arr": "12.57",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19838",
+      "dep": "14.02",
+      "arr": "14.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19882",
+      "dep": "14.05",
+      "arr": "14.18",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19884",
+      "dep": "14.47",
+      "arr": "15.00",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23608",
+      "dep": "14.59",
+      "arr": "15.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19886",
+      "dep": "15.47",
+      "arr": "16.00",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "23610",
+      "dep": "15.59",
+      "arr": "16.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19890",
+      "dep": "16.27",
+      "arr": "16.40",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23612",
+      "dep": "16.59",
+      "arr": "17.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "23614",
+      "dep": "17.59",
+      "arr": "18.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19892",
+      "dep": "17.59",
+      "arr": "18.12",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23616",
+      "dep": "18.59",
+      "arr": "19.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19894",
+      "dep": "19.21",
+      "arr": "19.35",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "23618",
+      "dep": "19.59",
+      "arr": "20.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19896",
+      "dep": "20.32",
+      "arr": "20.45",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23620",
+      "dep": "20.59",
+      "arr": "21.15",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19898",
+      "dep": "21.22",
+      "arr": "21.35",
+      "pattern": "SAT_ONLY_SUMMER_GAP"
+    },
+    {
+      "num": "19852",
+      "dep": "22.07",
+      "arr": "22.20",
+      "pattern": "DAILY"
+    }
+  ],
+  "bari_modugno": [
+    {
+      "num": "19825",
+      "dep": "5.30",
+      "arr": "5.42",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19827",
+      "dep": "6.10",
+      "arr": "6.22",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "23603",
+      "dep": "6.45",
+      "arr": "6.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19871",
+      "dep": "7.18",
+      "arr": "7.30",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23605",
+      "dep": "7.45",
+      "arr": "7.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19853",
+      "dep": "9.10",
+      "arr": "9.22",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19873",
+      "dep": "9.50",
+      "arr": "10.02",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19875",
+      "dep": "10.50",
+      "arr": "11.02",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "19831",
+      "dep": "11.10",
+      "arr": "11.22",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "23607",
+      "dep": "12.45",
+      "arr": "12.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19877",
+      "dep": "13.10",
+      "arr": "13.22",
+      "pattern": "SAT_ONLY_SUMMER_GAP"
+    },
+    {
+      "num": "19879",
+      "dep": "13.40",
+      "arr": "13.52",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23609",
+      "dep": "13.45",
+      "arr": "13.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19881",
+      "dep": "14.40",
+      "arr": "14.52",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23611",
+      "dep": "14.45",
+      "arr": "14.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19883",
+      "dep": "15.24",
+      "arr": "15.36",
+      "pattern": "SAT_ONLY_SUMMER_GAP"
+    },
+    {
+      "num": "23613",
+      "dep": "15.45",
+      "arr": "15.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19891",
+      "dep": "16.30",
+      "arr": "16.42",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23615",
+      "dep": "16.45",
+      "arr": "16.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19893",
+      "dep": "17.44",
+      "arr": "17.56",
+      "pattern": "SAT_ONLY_SUMMER_GAP"
+    },
+    {
+      "num": "23617",
+      "dep": "17.45",
+      "arr": "17.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19895",
+      "dep": "18.20",
+      "arr": "18.33",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "23619",
+      "dep": "18.45",
+      "arr": "18.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "23621",
+      "dep": "19.45",
+      "arr": "19.58",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19897",
+      "dep": "19.45",
+      "arr": "19.57",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "19899",
+      "dep": "20.50",
+      "arr": "21.02",
+      "pattern": "MON_SAT"
+    },
+    {
+      "num": "19849",
+      "dep": "21.10",
+      "arr": "21.22",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19885",
+      "dep": "21.28",
+      "arr": "21.40",
+      "pattern": "SAT_SUN_HOL"
+    },
+    {
+      "num": "19851",
+      "dep": "22.45",
+      "arr": "22.57",
+      "pattern": "MON_FRI"
+    },
+    {
+      "num": "19863",
+      "dep": "23.37",
+      "arr": "23.49",
+      "pattern": "SAT_ONLY_EXCL_AUG"
+    }
+  ]
+}
